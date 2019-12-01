@@ -1,0 +1,99 @@
+<h1 align="center" style="background-image: -webkit-linear-gradient( -29deg, rgb(37, 129, 196) 0%, rgb(45, 65, 127) 100%);">
+<!--
+  <img alt="Gympoint" title="Nagro" src="https://storage.googleapis.com/nagro-static/site/assets/img/Logo_Nagro_Branco.png" width="200px" />
+-->
+</h1>
+
+<p align="center"><i>Imagem feita pela <a href="https://nagro.com.br/">Nagro</a></i></p>
+
+<h3 align="center">Código desenvolvido para a vaga de backend na Nagro :seedling:</h3>
+
+## RESUMO
+
+API desenvolvida em Node.JS como parte do teste para pleitear a vaga de desenvolvedor *backend* na <a href="https://nagro.com.br/">Nagro</a>
+<!--
+Para visualizar os requisitos, acesso o arquivo TESTE.md, clicando <a href="https://nagro.com.br/">aqui</a>
+https://www.md5online.org/
+-->
+
+## ÍNDICE
+
+- [Instalação](#instalação)
+  - [Clonando o repositório](#clonando-o-repositório)
+  - [*Download* de dependências](#download-de-dependências)
+  - [Configuração das variáveis ambientes](#configuração-das-variáveis-ambientes)
+- [Testes](#testes)
+- [Projeto](#projeto)
+  - [Parte 1 - Usuários](#parte-1---usuários)
+    - [Cadastro de usuário](#cadastro-de-usuário)
+    - [Sessão de usuário](#sessão-de-usuário)
+    - [Atualização de usuário](#atualização-de-usuário)
+
+## Instalação
+
+### Clonando o repositório
+
+Existem duas maneiras de realizar o clone de um repositório, sendo elas: **SSH** e **HTTPS**.
+
+Para clonar utilizando **SSH**, utilize-se o seguinte comando:
+```bash
+git clone git@github.com:KelseyJr/teste-nagro.git
+```
+
+Para clonar utilizando **HTTPS**, utilize-se o seguinte comando:
+```bash
+git clone https://github.com/KelseyJr/teste-nagro.git
+```
+
+### *Download* de dependências
+
+Após o clone do repositório, é necessário realizar o *download* das dependências que foram utilizadas nesse projeto.
+
+Para efetuar o *download*, utilize-se do seguinte comando:
+```bash
+yarn
+```
+
+### Configuração das variáveis ambientes
+Para configurar as variáveis ambientes, deve-se criar o arquivo `.env`, copiar as informações contidas
+no arquivo `.env.example` e colar no arquivo recém-criado. Após isso, os dados do arquivo gerado devem ser preenchidos.
+
+![](enviroment.gif)
+
+
+## Testes
+O seguinte projeto foi construído utilizando-se da metodologia TDD(*Test Driven Development*), em que consiste em criar o teste antes da funcionalidade.
+
+Para rodar os testes, execute o seguinte comando no seu *console*:
+```bash
+yarn test
+```
+
+## Projeto
+O projeto foi desenvolvido por partes, para garantir que todos os requisitos fosse atendidos.
+
+### Parte 1 - Usuários
+Na parte de usuário, é possível realizar o seu cadastro e a sua atualização, bem como efetuar a sua sessão na API.
+
+#### Cadastro de usuário
+Segue abaixo as informações da rota de cadastro de usuário.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Não | POST | /users | 1 - name: String e obrigatório<br> 2 - email: String, único e obrigatório<br> 3 - cpf: String de tamanho 14(Ex: 754.778.516-60), único e obrigatório<br>4 - password: String e obrigatório | { <br>&emsp;id, <br>&emsp;name,<br>&emsp;email,<br>&emsp;cpf<br> }|
+
+#### Sessão de usuário
+Segue abaixo as informações da rota de sessão de usuário.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Não | POST | /sessions | 1 - email: String e obrigatório<br>2 - password: String e obrigatório | user: { <br>&emsp;id, <br>&emsp;name,<br>&emsp;email,<br>&emsp;cpf<br> },<br>token|
+
+#### Atualização de usuário
+Segue abaixo as informações da rota de atualização de usuário.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Sim | PUT | /users | 1 - name: String e obrigatório<br> 2 - email: String, único e obrigatório<br> 3 - cpf: String de tamanho 14(Ex: 754.778.516-60), único e obrigatório<br>4 - oldPassword: String<br>5 - password: String (obrigatório caso o campo oldPassword seja preenchido)<br>6 - confirmPassword: String (obrigatório caso o campo password seja preenchido )| { <br>&emsp;id, <br>&emsp;name,<br>&emsp;email,<br>&emsp;cpf<br> }|
+
+
