@@ -94,6 +94,6 @@ Segue abaixo as informações da rota de atualização de usuário.
 
 |Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
 | :---: | :---: | :---: | :--- | :--- |
-|Sim | PUT | /users | 1 - name: String e obrigatório<br> 2 - email: String, único e obrigatório<br> 3 - cpf: String de tamanho 14(Ex: 754.778.516-60), único e obrigatório<br>4 - oldPassword: String<br>5 - password: String (obrigatório caso o campo oldPassword seja preenchido)<br>6 - confirmPassword: String (obrigatório caso o campo password seja preenchido )| { <br>&emsp;id, <br>&emsp;name,<br>&emsp;email,<br>&emsp;cpf<br> }|
+|Sim | PUT | /users | 1 - name: String e obrigatório<br> 2 - email: String, único e obrigatório<br> 3 - cpf: String de tamanho 14(Ex: 754.778.516-60), único e obrigatório<br>4 - oldPassword: String<br>5 - password: String (obrigatório caso o campo oldPassword seja preenchido)<br>6 - confirmPassword: String (obrigatório caso o campo password seja preenchido)| { <br>&emsp;id, <br>&emsp;name,<br>&emsp;email,<br>&emsp;cpf<br> }|
 
 
