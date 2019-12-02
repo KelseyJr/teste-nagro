@@ -28,6 +28,11 @@ https://www.md5online.org/
     - [Cadastro de usuário](#cadastro-de-usuário)
     - [Sessão de usuário](#sessão-de-usuário)
     - [Atualização de usuário](#atualização-de-usuário)
+  - [Parte 2 - Fazendas](#parte-2---fazendas)
+    - [Cadastro de fazenda](#cadastro-de-fazenda)
+    - [Atualização de fazenda](#atualização-de-usuário)
+    - [Listar todas as fazendas](#listar-todas-as-fazendas)
+    - [Listar apenas uma fazenda](#listar-apenas-uma-fazenda)
 
 ## Instalação
 
@@ -96,4 +101,51 @@ Segue abaixo as informações da rota de atualização de usuário.
 | :---: | :---: | :---: | :--- | :--- |
 |Sim | PUT | /users | 1 - name: String e obrigatório<br> 2 - email: String, único e obrigatório<br> 3 - cpf: String de tamanho 14(Ex: 754.778.516-60), único e obrigatório<br>4 - oldPassword: String<br>5 - password: String (obrigatório caso o campo oldPassword seja preenchido)<br>6 - confirmPassword: String (obrigatório caso o campo password seja preenchido)| { <br>&emsp;id, <br>&emsp;name,<br>&emsp;email,<br>&emsp;cpf<br> }|
 
+### Parte 2 - Fazendas
+Na parte de fazendas, é possível realizar criar, atualizar, listar todas as fazendas e listar apenas
+uma fazenda.
 
+#### Cadastro de fazenda
+Segue abaixo as informações da rota de cadastro de fazenda.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Sim | POST | /farms | 1 - name: String e obrigatório<br> 2 - city: String, único e obrigatório<br> 3 - state: String, único e obrigatório<br>4 - qty_hectares_land: Decimal(double) e obrigatório<br>5 - active: Booleano, sendo *true* como default <br>| { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city,<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;user_id(usuário logado)<br>&emsp;active<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+#### Atualização de fazenda
+Segue abaixo as informações da rota de atualização de fazenda.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Sim | PUT | /farms/:id_farm | 1 - name: String e obrigatório<br> 2 - city: String, único e obrigatório<br> 3 - state: String, único e obrigatório<br>4 - qty_hectares_land: Decimal(double) e obrigatório<br>5 - active: Booleano <br>| { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city,<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;user_id(usuário logado)<br>&emsp;active<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :id_farm | Route params |Inteiro, representando o código da fazenda | /farms/1 | Sim |
+
+#### Listar todas as fazendas
+Segue abaixo as informações da rota de listagem de todas as fazendas.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | GET | /farms/?page=x&per_page=x?active=x | -- | { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city,<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;active<br>&emsp;created_at<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Valor padrão | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| page | Query params |Inteiro, representando o número da página | page=1 | 1 | Não |
+| per_page | Query params |Inteiro, representando a quantidade de registros por página | per_page=5 | 5 |Não |
+| active | Query params |Booleano, representando se a fazenda está ativa ou não | active=true | *vazio* |Não |
+
+#### Listar apenas uma fazenda
+Segue abaixo as informações da rota de listagem de apenas uma a fazenda.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros | Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | GET | /farms/:id_farm | -- | { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city,<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;active<br>&emsp;created_at<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :id_farm | Route params |Inteiro, representando o código da fazenda | /farms/1 | Sim |

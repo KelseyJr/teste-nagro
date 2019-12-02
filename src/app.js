@@ -2,6 +2,7 @@ import './bootstrap';
 
 import Youch from 'youch';
 import express from 'express';
+import boolParser from 'express-query-boolean';
 import 'express-async-errors';
 
 import routes from './routes';
@@ -19,6 +20,7 @@ class App {
 
   middlewares() {
     this.server.use(express.json());
+    this.server.use(boolParser());
   }
 
   routes() {
