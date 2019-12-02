@@ -119,7 +119,7 @@ Segue abaixo as informações da rota de atualização de fazenda.
 | :---: | :---: | :---: | :--- | :--- |
 |Sim | PUT | /farms/:id_farm | 1 - name: String e obrigatório<br> 2 - city: String, único e obrigatório<br> 3 - state: String, único e obrigatório<br>4 - qty_hectares_land: Decimal(double) e obrigatório<br>5 - active: Booleano <br>| { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city,<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;user_id(usuário logado)<br>&emsp;active<br>&emsp;created_at<br>&emsp;updated_at<br> }|
 
-#### Parâmetros da rota
+##### Parâmetros da rota
 |Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
 | :---: | :---: | :---: | :---: | :---: |
 | :id_farm | Route params |Inteiro, representando o código da fazenda | /farms/1 | Sim |
@@ -131,7 +131,7 @@ Segue abaixo as informações da rota de listagem de todas as fazendas.
 | :---: | :---: | :---: | :---: | :--- |
 |Sim | GET | /farms/?page=x&per_page=x?active=x | -- | { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city,<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;active<br>&emsp;created_at<br> }|
 
-#### Parâmetros da rota
+##### Parâmetros da rota
 |Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Valor padrão | Obrigatório? |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | page | Query params |Inteiro, representando o número da página | page=1 | 1 | Não |
@@ -145,7 +145,7 @@ Segue abaixo as informações da rota de listagem de apenas uma a fazenda.
 | :---: | :---: | :---: | :---: | :--- |
 |Sim | GET | /farms/:id_farm | -- | { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city,<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;active<br>&emsp;created_at<br> }|
 
-#### Parâmetros da rota
+##### Parâmetros da rota
 |Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
 | :---: | :---: | :---: | :---: | :---: |
 | :id_farm | Route params |Inteiro, representando o código da fazenda | /farms/1 | Sim |
