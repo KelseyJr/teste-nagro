@@ -1,5 +1,5 @@
 <h1 align="center" style="background-image: -webkit-linear-gradient( -29deg, rgb(37, 129, 196) 0%, rgb(45, 65, 127) 100%); padding: 15px;">
-  <img alt="Gympoint" title="Nagro" src="https://storage.googleapis.com/nagro-static/site/assets/img/Logo_Nagro_Branco.png" width="200px" />
+  <img alt="Nagro" title="Nagro" src=".github/logo.png" width="200px" />
 </h1>
 
 <p align="center"><i>Imagem feita pela <a href="https://nagro.com.br/">Nagro</a></i></p>
@@ -62,7 +62,7 @@ no arquivo `.env.example` e colar no arquivo recém-criado. Após isso, os dados
 
 **OBS:** Por padrão, foi utilizado o banco de dados PostgreSQL. Caso queira usar outro, será necessário realizar as devidas alterações na API.
 
-![](enviroment.gif)
+![](.github/enviroment.gif)
 
 
 ## Criando as tabelas do banco de dados
