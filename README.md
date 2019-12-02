@@ -1,4 +1,11 @@
-<div align="center" style="background: rgb(37, 129, 196); padding: 15px;">
+<style>
+    .cor_fundo{
+        background: linear-gradient(-29deg, rgb(37, 129, 196) 0%, rgb(45, 65, 127) 100%);
+        padding: 15px;
+    }
+</style>
+
+<div align="center" class="cor_fundo">
   <img alt="Nagro" title="Nagro" src=".github/logo.png" width="200px" />
 </div>
 
