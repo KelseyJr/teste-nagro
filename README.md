@@ -1,5 +1,4 @@
 <div align="center" style="padding: 15px;">
-  <!-- background: linear-gradient(-29deg, rgb(37, 129, 196) 0%, rgb(45, 65, 127) 100%) -->
   <img alt="Nagro" title="Nagro" src=".github/logo.png" width="200px" />
 </div>
 
