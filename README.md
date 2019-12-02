@@ -1,4 +1,4 @@
-<div align="center" style="background: -webkit-linear-gradient( -29deg, rgb(37, 129, 196) 0%, rgb(45, 65, 127) 100%); padding: 15px;">
+<div align="center" style="background-image: linear-gradient( -29deg, rgb(37, 129, 196) 0%, rgb(45, 65, 127) 100%); padding: 15px;">
   <img alt="Nagro" title="Nagro" src=".github/logo.png" width="200px" />
 </div>
 
