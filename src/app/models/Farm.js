@@ -19,6 +19,11 @@ class Farm extends Model {
 
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+    this.belongsToMany(models.AgricultureProduction, {
+      foreignKey: 'farm_id',
+      through: 'farms_agriculture_productions',
+      as: 'agricultureProduction',
+    });
   }
 }
 
