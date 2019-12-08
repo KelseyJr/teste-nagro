@@ -30,6 +30,12 @@ Para visualizar os requisitos, acesso o arquivo TESTE, clicando <a href="https:/
     - [Atualização de fazenda](#atualização-de-usuário)
     - [Listar todas as fazendas](#listar-todas-as-fazendas)
     - [Listar apenas uma fazenda](#listar-apenas-uma-fazenda)
+  - [Parte 3 - Produção Agrícola](#parte-3---produção-agrícola)
+    - [Cadastro da produção](#cadastro-da-produção)
+    - [Atualização da produção](#atualização-da-produção)
+    - [Listar todas as produções](#listar-todas-as-produções)
+    - [Listar apenas uma produção](#listar-apenas-uma-produção)
+    - [Excluir uma produção](#excluir-uma-produção)
 
 # Instalação
 
@@ -157,3 +163,64 @@ Segue abaixo as informações da rota de listagem de apenas uma a fazenda.
 |Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
 | :---: | :---: | :---: | :---: | :---: |
 | :id_farm | Route params |Inteiro, representando o código da fazenda | /farms/1 | Sim |
+
+## Parte 3 - Produção Agrícola
+Na parte da produção agrícola, é possível realizar criar, atualizar, listar todas as produções e listar apenas uma produção.
+
+### Cadastro da produção
+Segue abaixo as informações da rota de cadastro da produção.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)| Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Sim | POST | /agriculture-production | 1 - qty_hectares_planted: Double e obrigatório<br> 2 - planting_year: Inteiro e obrigatório<br> 3 - planting_crop: String e obrigatório <br>4 - farms: Array de inteiro, representando o código das fazendas, e obrigatório| { <br>&emsp;id,<br>&emsp;qty_hectares_planted,<br>&emsp;planting_year,<br>&emsp;state<br>&emsp;planting_crop<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+### Atualização de produção
+Segue abaixo as informações da rota de atualização da produção.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Sim | PUT | /agriculture-production/:agricultureProduction_id | 1 - qty_hectares_planted: Double e obrigatório<br> 2 - planting_year: Inteiro e obrigatório<br> 3 - planting_crop: String e obrigatório <br>4 - farms: Array de inteiro, representando o código das fazendas| { <br>&emsp;id, <br>&emsp;qty_hectares_planted,<br>&emsp;planting_year,<br>&emsp;state<br>&emsp;planting_crop<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :agricultureProduction_id | Route params |Inteiro, representando o código da produção agrícola | /agriculture-production/1 | Sim |
+
+### Listar todas as produções
+Segue abaixo as informações da rota de listagem de todas as produções agrícolas.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)| Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | GET | /agriculture-production?page=x&per_page=x&planting_year=x&planting_crop=x | -- | { <br>&emsp;id, <br>&emsp;qty_hectares_planted,<br>&emsp;planting_year,<br>&emsp;state<br>&emsp;planting_crop<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Valor padrão | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| page | Query params |Inteiro, representando o número da página | page=1 | 1 | Não |
+| per_page | Query params |Inteiro, representando a quantidade de registros por página | per_page=5 | 5 |Não |
+| planting_year | Query params |Inteiro, representando o ano da produção | planting_year=2020 | *vazio* |Não |
+| planting_crop | Query params |String, representando a cultura da produção | planting_crop=Milho | *vazio* |Não |
+
+### Listar apenas uma produção
+Segue abaixo as informações da rota de listagem de apenas uma produção agrícola.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | GET | /agriculture-production/:agricultureProduction_id | -- | { <br>&emsp;id, <br>&emsp;name,<br>&emsp;city<br>&emsp;state<br>&emsp;qty_hectares_land<br>&emsp;active<br>&emsp;created_at<br>&emsp;farms: [<br>&emsp;&emsp;{&emsp;<br>&emsp;&emsp;id<br>&emsp;&emsp;name<br>&emsp;&emsp;city<br>&emsp;&emsp;state<br>&emsp; &emsp;}<br>&emsp;]<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :agricultureProduction_id | Route params |Inteiro, representando o código da produção agrícola | /agriculture-production/1 | Sim |
+
+### Excluir uma produção
+Segue abaixo as informações da rota para exclusão de uma produção agrícola.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | DELETE | /agriculture-production/:agricultureProduction_id | -- | -- |
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :agricultureProduction_id | Route params |Inteiro, representando o código da produção agrícola | /agriculture-production/1 | Sim |

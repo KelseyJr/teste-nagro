@@ -33,7 +33,7 @@ describe('Create Farm', () => {
     expect(response.body).toMatchObject({ error: 'Token is not provided' });
   });
 
-  it('should not be able to update a user with invalid jwt token', async () => {
+  it('should not be able to create a farm with invalid jwt token', async () => {
     const farm = await factory.attrs('Farm');
 
     const response = await request(app)
@@ -240,7 +240,7 @@ describe('List all farms', () => {
 
   it('should be able to list 10 farms per page', async () => {
     const user = await factory.create('User');
-    await factory.createMany('Farm', 20, {
+    await factory.createMany('Farm', 11, {
       user_id: user.dataValues.id,
     });
 
