@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"kelseytfjunior2@gmail.com\",\n\t\"password\": \"123456\"\n}",
+							"raw": "{\n\t\"email\": \"kelseytfjunior1@gmail.com\",\n\t\"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -61,7 +61,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Kelsey\",\n    \"email\": \"kelseytfjunior2@gmail.com\",\n    \"cpf\": \"754.778.516-60\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"name\": \"Kelsey\",\n    \"email\": \"kelseytfjunior1@gmail.com\",\n    \"cpf\": \"754.778.516-60\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -430,6 +430,195 @@
 								{
 									"key": "planting_year",
 									"value": "2021"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Livestock Production",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"qty_animals\": 10,\n\t\"production_year\": 2020,\n\t\"animals_species\": \"boi\",\n\t\"farms\": [1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/livestock-production",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livestock-production"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/livestock-production/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livestock-production",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"qty_animals\": 15,\n\t\"production_year\": 2020,\n\t\"animals_species\": \"boi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/livestock-production/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livestock-production",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/livestock-production/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livestock-production",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/livestock-production?animals_species=boi",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livestock-production"
+							],
+							"query": [
+								{
+									"key": "animals_species",
+									"value": "boi"
 								}
 							]
 						}

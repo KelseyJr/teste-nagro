@@ -105,7 +105,7 @@ class AgricultureProductionController {
             id: farms,
           },
         });
-        if (data.qty_hectares_planted >= farm_lands) {
+        if (data.qty_hectares_planted > farm_lands) {
           return res.status(400).json({
             error:
               'Hectares planted is higher than sum of hectares land from farms ',

@@ -4,6 +4,7 @@ import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import FarmController from './app/controllers/FarmController';
 import AgricultureProductionController from './app/controllers/AgricultureProductionController';
+import LivestockProductionController from './app/controllers/LivestockProductionController';
 
 import validateUserStore from './app/validators/User/UserStore';
 import validateUserUpdate from './app/validators/User/UserUpdate';
@@ -12,6 +13,8 @@ import validateFarmStore from './app/validators/Farm/FarmStore';
 import validateFarmUpdate from './app/validators/Farm/FarmUpdate';
 import validateAgricultureProductionStore from './app/validators/AgricultureProduction/AgricultureProductionStore';
 import validateAgricultureProductionUpdate from './app/validators/AgricultureProduction/AgricultureProductionUpdate';
+import validateLivestockProductionStore from './app/validators/LivestockProduction/LivestockProductionStore';
+import validateLivestockProductionUpdate from './app/validators/LivestockProduction/LivestockProductionUpdate';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -46,6 +49,26 @@ routes.put(
 routes.delete(
   '/agriculture-production/:agricultureProduction_id',
   AgricultureProductionController.delete
+);
+
+routes.get('/livestock-production', LivestockProductionController.index);
+routes.get(
+  '/livestock-production/:livestockProduction_id',
+  LivestockProductionController.show
+);
+routes.post(
+  '/livestock-production',
+  validateLivestockProductionStore,
+  LivestockProductionController.store
+);
+routes.put(
+  '/livestock-production/:livestockProduction_id',
+  validateLivestockProductionUpdate,
+  LivestockProductionController.update
+);
+routes.delete(
+  '/livestock-production/:livestockProduction_id',
+  LivestockProductionController.delete
 );
 
 export default routes;
