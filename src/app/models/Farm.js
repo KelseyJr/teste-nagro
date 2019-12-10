@@ -24,6 +24,11 @@ class Farm extends Model {
       through: 'farms_agriculture_productions',
       as: 'agricultureProduction',
     });
+    this.belongsToMany(models.LivestockProduction, {
+      foreignKey: 'farm_id',
+      through: 'farms_livestock_productions',
+      as: 'livestockProduction',
+    });
   }
 }
 

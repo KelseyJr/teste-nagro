@@ -16,7 +16,6 @@ describe('Create Agriculte Production', () => {
       qty_hectares_land: 10,
     });
     const id_farms = farms.map(farm => farm.dataValues.id);
-
     const production = await factory.attrs('AgricultureProduction', {
       farms: id_farms,
       qty_hectares_planted: 20,
@@ -111,12 +110,14 @@ describe('Update Agriculte Production', () => {
 
   it('should be able to update a agriculture production', async () => {
     const user = await factory.create('User');
-    const farms = await factory.createMany('Farm', 5, {
+    const farms = await factory.createMany('Farm', 7, {
       user_id: user.dataValues.id,
+      qty_hectares_land: 10,
     });
     const id_farms = farms.map(farm => farm.dataValues.id);
     const production = await factory.create('AgricultureProduction', {
       planting_year: 2019,
+      qty_hectares_planted: 60,
       farms: id_farms,
     });
 
@@ -222,33 +223,9 @@ describe('Update Agriculte Production', () => {
     });
   });
 
-  it('should be able to update farms from agriculture production', async () => {
-    const user = await factory.create('User');
-    const farms = await factory.createMany('Farm', 5, {
-      user_id: user.dataValues.id,
-    });
-    const id_farms = farms.map(farm => farm.dataValues.id);
-    const production = await factory.create('AgricultureProduction', {
-      planting_year: 2019,
-      farms: id_farms,
-    });
-
-    const response = await request(app)
-      .put(`/agriculture-production/${production.dataValues.id}`)
-      .set('Authorization', `Bearer ${user.generateToken()}`)
-      .send({
-        qty_hectares_planted: production.dataValues.qty_hectares_planted,
-        planting_crop: production.dataValues.planting_crop,
-        planting_year: 2020,
-        farms: [farms[0].dataValues.id, farms[1].dataValues.id],
-      });
-
-    expect(response.status).toBe(200);
-  });
-
   it('should not be able to update a new agriculture production when qty_hectares_planted is higher than sum of qty_hectares_land farm', async () => {
     const user = await factory.create('User');
-    const farms = await factory.createMany('Farm', 5, {
+    const farms = await factory.createMany('Farm', 7, {
       user_id: user.dataValues.id,
       qty_hectares_land: 10,
     });
@@ -276,6 +253,32 @@ describe('Update Agriculte Production', () => {
     expect(response.body).toMatchObject({
       error: 'Hectares planted is higher than sum of hectares land from farms ',
     });
+  });
+
+  it('should not be able to update a new agriculture production when farm is given', async () => {
+    const user = await factory.create('User');
+    const farms = await factory.createMany('Farm', 7, {
+      user_id: user.dataValues.id,
+      qty_hectares_land: 10,
+    });
+    const id_farms = farms.map(farm => farm.dataValues.id);
+
+    const production = await factory.create('AgricultureProduction', {
+      farms: id_farms,
+      qty_hectares_planted: 60,
+    });
+    const response = await request(app)
+      .put(`/agriculture-production/${production.dataValues.id}`)
+      .set('Authorization', `Bearer ${user.generateToken()}`)
+      .send({
+        qty_hectares_planted: production.dataValues.qty_hectares_planted,
+        planting_crop: production.dataValues.planting_crop,
+        planting_year: production.dataValues.planting_year,
+        farms: id_farms,
+      });
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('id');
   });
 });
 
@@ -439,6 +442,26 @@ describe('List all agriculture Productions', () => {
 
     const response = await request(app)
       .get(`/agriculture-production`)
+      .set('Authorization', `Bearer ${user.generateToken()}`);
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+  });
+
+  it('should be able to list all agriculture production with parameters', async () => {
+    const user = await factory.create('User');
+    const farms = await factory.createMany('Farm', 5, {
+      user_id: user.dataValues.id,
+    });
+    const id_farms = farms.map(farm => farm.dataValues.id);
+    await factory.createMany('AgricultureProduction', 5, {
+      farms: id_farms,
+      planting_year: 2020,
+      planting_crop: 'trigo',
+    });
+
+    const response = await request(app)
+      .get(`/agriculture-production?planting_year=2020&planting_crop=trigo`)
       .set('Authorization', `Bearer ${user.generateToken()}`);
 
     expect(response.status).toBe(200);

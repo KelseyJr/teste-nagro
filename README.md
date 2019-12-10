@@ -224,3 +224,64 @@ Segue abaixo as informações da rota para exclusão de uma produção agrícola
 |Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
 | :---: | :---: | :---: | :---: | :---: |
 | :agricultureProduction_id | Route params |Inteiro, representando o código da produção agrícola | /agriculture-production/1 | Sim |
+
+## Parte 4 - Produção Pecuária
+Na parte da produção pecuária, é possível realizar criar, atualizar, listar todas as produções e listar apenas uma produção.
+
+### Cadastro da produção
+Segue abaixo as informações da rota de cadastro da produção.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)| Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Sim | POST | /livestock-production | 1 - qty_animals: Inteiro e obrigatório<br> 2 - production_year: Inteiro e obrigatório<br> 3 - animals_species: String e obrigatório <br>4 - farms: Array de inteiro, representando o código das fazendas, e obrigatório| { <br>&emsp;id,<br>&emsp;qty_animals,<br>&emsp;production_year,<br>&emsp;animals_species<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+### Atualização de produção
+Segue abaixo as informações da rota de atualização da produção.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
+| :---: | :---: | :---: | :--- | :--- |
+|Sim | PUT | /livestock-production/:livestockProduction_id | 1 - qty_animals: Inteiro e obrigatório<br> 2 - production_year: Inteiro e obrigatório<br> 3 - animals_species: String e obrigatório <br> 4 - farms: Array de inteiro, representando o código das fazendas| { <br>&emsp;id, <br>&emsp;qty_animals,<br>&emsp;production_year,<br>&emsp;animals_species<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :livestockProduction_id | Route params |Inteiro, representando o código da produção pecuária | /livestock-production/1 | Sim |
+
+### Listar todas as produções
+Segue abaixo as informações da rota de listagem de todas as produções pecuárias.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)| Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | GET | /livestock-production?page=x&per_page=x&production_year=x&animals_species=x | -- | { <br>&emsp;id, <br>&emsp;qty_animals,<br>&emsp;production_year,<br>&emsp;animals_species<br>&emsp;created_at<br>&emsp;updated_at<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Valor padrão | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| page | Query params |Inteiro, representando o número da página | page=1 | 1 | Não |
+| per_page | Query params |Inteiro, representando a quantidade de registros por página | per_page=5 | 5 |Não |
+| production_year | Query params |Inteiro, representando o ano da produção | production_year=2020 | *vazio* |Não |
+| animals_species | Query params |String, representando a espécie do animal | animals_species=Boi | *vazio* |Não |
+
+### Listar apenas uma produção
+Segue abaixo as informações da rota de listagem de apenas uma produção pecuária.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | GET | /livestock-production/:livestockProduction_id | -- | { <br>&emsp;id,<br>&emsp;production_year<br>&emsp;animals_species<br>&emsp;production_year<br>&emsp;created_at<br>&emsp;farms: [<br>&emsp;&emsp;{&emsp;<br>&emsp;&emsp;id<br>&emsp;&emsp;name<br>&emsp;&emsp;city<br>&emsp;&emsp;state<br>&emsp; &emsp;}<br>&emsp;]<br> }|
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :livestockProduction_id | Route params |Inteiro, representando o código da produção pecuária | /livestock-production/1 | Sim |
+
+### Excluir uma produção
+Segue abaixo as informações da rota para exclusão de uma produção pecuária.
+
+|Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
+| :---: | :---: | :---: | :---: | :--- |
+|Sim | DELETE | /livestock-production/:livestockProduction_id | -- | -- |
+
+#### Parâmetros da rota
+|Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
+| :---: | :---: | :---: | :---: | :---: |
+| :livestockProduction_id | Route params |Inteiro, representando o código da produção pecuária | /livestock-production/1 | Sim |

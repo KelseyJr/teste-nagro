@@ -1,25 +1,23 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('farms_agriculture_productions', {
+    return queryInterface.createTable('livestock_productions', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      agriculture_production_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'agriculture_productions', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+      animals_species: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      farm_id: {
+      production_year: {
         type: Sequelize.INTEGER,
-        references: { model: 'farms', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-        allowNull: true,
+        allowNull: false,
+      },
+      qty_animals: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -33,6 +31,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('farms_agriculture_productions');
+    return queryInterface.dropTable('livestock_productions');
   },
 };
