@@ -36,6 +36,14 @@ Para visualizar os requisitos, acesso o arquivo TESTE, clicando <a href="https:/
     - [Listar todas as produções](#listar-todas-as-produções)
     - [Listar apenas uma produção](#listar-apenas-uma-produção)
     - [Excluir uma produção](#excluir-uma-produção)
+  - [Parte 4 - Produção Pecuária](#parte-4---produção-pecuária)
+    - [Cadastro da produção pecuária](#cadastro-da-produção-pecuária)
+    - [Atualização da produção pecuária](#atualização-da-produção-pecuária)
+    - [Listar todas as produções pecuárias](#listar-todas-as-produções-pecuárias)
+    - [Listar apenas uma produção  pecuária](#listar-apenas-uma-produção-pecuária)
+    - [Excluir uma produção pecuária](#excluir-uma-produção-pecuária)
+- [Contribuição](#contribuição)
+- [Dúvidas](#dúvidas)
 
 # Instalação
 
@@ -228,14 +236,14 @@ Segue abaixo as informações da rota para exclusão de uma produção agrícola
 ## Parte 4 - Produção Pecuária
 Na parte da produção pecuária, é possível realizar criar, atualizar, listar todas as produções e listar apenas uma produção.
 
-### Cadastro da produção
+### Cadastro da produção pecuária
 Segue abaixo as informações da rota de cadastro da produção.
 
 |Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)| Retorno |
 | :---: | :---: | :---: | :--- | :--- |
 |Sim | POST | /livestock-production | 1 - qty_animals: Inteiro e obrigatório<br> 2 - production_year: Inteiro e obrigatório<br> 3 - animals_species: String e obrigatório <br>4 - farms: Array de inteiro, representando o código das fazendas, e obrigatório| { <br>&emsp;id,<br>&emsp;qty_animals,<br>&emsp;production_year,<br>&emsp;animals_species<br>&emsp;created_at<br>&emsp;updated_at<br> }|
 
-### Atualização de produção
+### Atualização da produção pecuária
 Segue abaixo as informações da rota de atualização da produção.
 
 |Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
@@ -247,7 +255,7 @@ Segue abaixo as informações da rota de atualização da produção.
 | :---: | :---: | :---: | :---: | :---: |
 | :livestockProduction_id | Route params |Inteiro, representando o código da produção pecuária | /livestock-production/1 | Sim |
 
-### Listar todas as produções
+### Listar todas as produções pecuárias
 Segue abaixo as informações da rota de listagem de todas as produções pecuárias.
 
 |Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body)| Retorno |
@@ -262,7 +270,7 @@ Segue abaixo as informações da rota de listagem de todas as produções pecuá
 | production_year | Query params |Inteiro, representando o ano da produção | production_year=2020 | *vazio* |Não |
 | animals_species | Query params |String, representando a espécie do animal | animals_species=Boi | *vazio* |Não |
 
-### Listar apenas uma produção
+### Listar apenas uma produção pecuária
 Segue abaixo as informações da rota de listagem de apenas uma produção pecuária.
 
 |Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
@@ -274,7 +282,7 @@ Segue abaixo as informações da rota de listagem de apenas uma produção pecu�
 | :---: | :---: | :---: | :---: | :---: |
 | :livestockProduction_id | Route params |Inteiro, representando o código da produção pecuária | /livestock-production/1 | Sim |
 
-### Excluir uma produção
+### Excluir uma produção pecuária
 Segue abaixo as informações da rota para exclusão de uma produção pecuária.
 
 |Rota autenticada? | Método da rota | Nome da rota | Parâmetros (Request Body) | Retorno |
@@ -285,3 +293,12 @@ Segue abaixo as informações da rota para exclusão de uma produção pecuária
 |Nome do parâmetro | Tipo do parâmetro | Valor do parâmetro | Exemplo | Obrigatório? |
 | :---: | :---: | :---: | :---: | :---: |
 | :livestockProduction_id | Route params |Inteiro, representando o código da produção pecuária | /livestock-production/1 | Sim |
+
+
+## Contribuição
+Pull requests serão sempre bem-vindas. Para grandes mudanças, crie uma issue para discurtimos o que você gostaria de mudar.
+
+Claro, não se esqueça de atualizar os testes. :wink:
+
+## Dúvidas
+Qualquer dúvida em relação ao projeto, crie uma issue ou mande um e-mail para kelseytfjunior@gmail.com
