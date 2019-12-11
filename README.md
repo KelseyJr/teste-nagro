@@ -18,7 +18,7 @@
 
 API desenvolvida em Node.JS como parte do teste para pleitear a vaga de desenvolvedor *backend* na <a href="https://nagro.com.br/">Nagro</a>
 
-Para visualizar os requisitos, acesso o arquivo TESTE, clicando <a href="https://github.com/KelseyJr/teste-nagro/blob/master/TESTE.md">aqui</a>
+Para visualizar os requisitos, acesso o arquivo TESTE.md, clicando <a href="https://github.com/KelseyJr/teste-nagro/blob/master/TESTE.md">aqui</a>
 
 # ÍNDICE
 
