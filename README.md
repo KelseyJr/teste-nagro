@@ -74,9 +74,14 @@ git clone https://github.com/KelseyJr/teste-nagro.git
 
 Após o clone do repositório, é necessário realizar o *download* das dependências que foram utilizadas nesse projeto.
 
-Para efetuar o *download*, utilize do seguinte comando:
+Para efetuar o *download*, usando yarn, utilize do seguinte comando:
 ```bash
 yarn
+```
+
+Para efetuar o *download*, usando npm, utilize do seguinte comando:
+```bash
+npm install
 ```
 
 ## Configuração das variáveis ambientes
@@ -91,28 +96,44 @@ no arquivo `.env.example` e colar no arquivo recém-criado. Após isso, os dados
 ## Criando as tabelas do banco de dados
 Após a configuração das variáveis ambientes, é necessário rodar o *script* responsável pela criação das tabelas no banco de dados.
 
-Para executar o *script*, utilize do seguinte comando:
+Para executar o *script*, usando yarn, utilize do seguinte comando:
 ```bash
 yarn sequelize db:migrate
+```
+
+Para executar o *script*, usando npm, utilize do seguinte comando:
+```bash
+npx sequelize db:migrate
 ```
 
 
 # Testes
 O seguinte projeto foi construído utilizando-se da metodologia TDD(*Test Driven Development*), em que consiste em criar o teste antes da funcionalidade.
 
-Para rodar os testes, execute o seguinte comando no seu *console*:
+Para rodar os testes, com yarn, execute o seguinte comando no seu *console*:
 ```bash
 yarn test
+```
+
+Para rodar os testes, com npm, execute o seguinte comando no seu *console*:
+```bash
+npm run test
 ```
 
 # Projeto
 O projeto foi desenvolvido por partes, para garantir que todos os requisitos fosse atendidos.
 
 ## Executar o servidor
-Para iniciar o servidor, utilize do seguinte comando:
+Para iniciar o servidor, usando yarn, utilize do seguinte comando:
 ```bash
 yarn dev
 ```
+
+Para iniciar o servidor, usando npm, utilize do seguinte comando:
+```bash
+npm run dev
+```
+
 
 ## Parte 1 - Usuários
 Na parte de usuário, é possível realizar o seu cadastro e a sua atualização, bem como efetuar a sua sessão na API.
