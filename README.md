@@ -309,4 +309,4 @@ Pull requests serão sempre bem-vindas. Para grandes mudanças, crie uma issue p
 Claro, não se esqueça de atualizar os testes. :wink:
 
 ## Dúvidas
-Qualquer dúvida em relação ao projeto, crie uma issue ou mande um e-mail para kelseytfjunior@gmail.com
+Qualquer dúvida em relação ao projeto, crie uma issue ou mande um e-mail para kelseytfjunior@gmail.com, ou entre em contato pelo WhatsApp.
