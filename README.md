@@ -5,14 +5,13 @@
 <p align="center"><i>Imagem feita pela <a href="https://nagro.com.br/">Nagro</a></i></p>
 
 <h3 align="center">Código desenvolvido para a vaga de backend na Nagro :seedling:</h3>
-<div style="display: flex; justify-content: center; align-items: center; margin-left: 10px;">
+<div align="center">
 
-  [![Build Status](https://travis-ci.org/KelseyJr/teste-nagro.svg?branch=master)](https://travis-ci.org/KelseyJr/teste-nagro)
-
-  [![Coverage Status](https://coveralls.io/repos/github/KelseyJr/teste-nagro/badge.svg?branch=master)](https://coveralls.io/github/KelseyJr/teste-nagro?branch=master)
+  [![Build Status](https://travis-ci.org/KelseyJr/teste-nagro.svg?branch=master)](https://travis-ci.org/KelseyJr/teste-nagro)<space><space>
+  [![Coverage Status](https://coveralls.io/repos/github/KelseyJr/teste-nagro/badge.svg?branch=master)](https://coveralls.io/github/KelseyJr/teste-nagro?branch=master)<space><space>
+  ![GitHub language count](https://img.shields.io/github/languages/count/KelseyJr/teste-nagro)<space><space>
 
 </div>
-
 
 
 # RESUMO
