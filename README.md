@@ -29,6 +29,7 @@ Para visualizar os requisitos, acesso o arquivo TESTE.md, clicando <a href="http
   - [Criando as tabelas do banco de dados](#criando-as-tabelas-do-banco-de-dados)
 - [Testes](#testes)
 - [Projeto](#projeto)
+  - [Executar o servidor](#executar-o-servidor)
   - [Parte 1 - Usuários](#parte-1---usuários)
     - [Cadastro de usuário](#cadastro-de-usuário)
     - [Sessão de usuário](#sessão-de-usuário)
@@ -106,6 +107,12 @@ yarn test
 
 # Projeto
 O projeto foi desenvolvido por partes, para garantir que todos os requisitos fosse atendidos.
+
+## Executar o servidor
+Para iniciar o servidor, utilize do seguinte comando:
+```bash
+yarn dev
+```
 
 ## Parte 1 - Usuários
 Na parte de usuário, é possível realizar o seu cadastro e a sua atualização, bem como efetuar a sua sessão na API.
