@@ -120,6 +120,11 @@ Para rodar os testes, com npm, execute o seguinte comando no seu *console*:
 npm run test
 ```
 
+## Usuários Windows
+
+Antes de executar os testes, deverá colocar *set* antes do NODE_ENV no package .json, confore a imagem.
+![](.github/screenshot.png)
+
 # Projeto
 O projeto foi desenvolvido por partes, para garantir que todos os requisitos fosse atendidos.
 
